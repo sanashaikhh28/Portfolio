@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div class="content-wrapper">
+        <!-- Your header, main, and sections -->
+    </div>
+    
+<head>
+    
+    <script src="js/particles.js"></script> <!-- If it's inside a "js" folder -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Shaikh  </title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiu4rDFrNA6ygrcnxrSpC7jwiJlKlrcX43SQ&s">
+    <link rel="icon" href="image/bck.avif" >
+    
+    
+    <style>
+    
+    </style>
+
+    
+</head>
+<body>
+
+    <canvas id="wave-canvas"></canvas>
+    <script src="wave-bg.js"></script>
+    <canvas id="particle-canvas"></canvas>
+    <script src="particles.js"></script>
+    <script src="snow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    
+    <canvas id="snowCanvas"></canvas>
+<script>
+const canvas = document.getElementById("snowCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const snowflakes = [];
+
+class Snowflake {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 3 + 1;
+        this.speedY = Math.random() * 1.5 + 0.5;
+    }
+
+    move() {
+        this.y += this.speedY;
+        if (this.y > canvas.height) {
+            this.y = -this.radius;
+            this.x = Math.random() * canvas.width;
+        }
+        this.draw();
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "white";
+        ctx.fill();
+    }
+}
+
+function initSnow() {
+    for (let i = 0; i < 120; i++) {
+        snowflakes.push(new Snowflake());
+    }
+}
+
+function animateSnow() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    snowflakes.forEach(flake => flake.move());
+    requestAnimationFrame(animateSnow);
+}
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+initSnow();
+animateSnow();
+</script>
+
+   
+    <header>
+        <div class="resume-button">
+            <a href="https://drive.google.com/file/d/1Y3XdGcfuKZxH4PWtSf-9A8KOVvcTwJg4/view?usp=drivesdk" target="_blank" class="btn btn-resume">Resume</a>
+        </div>
+      
+        <nav>
+            <ul>
+                
+                <li class="nav-item-2"><a href="#about">About</a></li>
+                <li class="nav-item-3"><a href="#skills">Skills</a></li>
+                <li class="nav-item-3"><a href="#experience">Experience</a></li>
+                <li class="nav-item-4"><a href="#projects">Projects</a></li>
+                <li class="nav-item-5"><a href="#contact">Contact</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <main>
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Sana Shaikh </h1>
+                    <h4><span class="highlight">Final year | Software Engineer Intern</span></h4>
+                    <p>Food Technologist & Software Developer 🎓 | Passionate about innovating with technology to enhance efficiency, quality, and sustainability.</p>   
+                        <div class="header-icons">
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+                            
+                                <a href="https://github.com/sanashaikhh28" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://www.linkedin.com/in/shaikh-sanaaa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                            </div>
+                            
+                           
+                        
+                        </div>
+                </div>
+                <div class="hero-image">
+                    
+                    <img src ="image/profile.webp"  alt="Sana Shaikh">
+            
+                </div>
+            </section>
+
+
+<!-- About Me Popup Modal -->
+<div id="aboutMeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h1>About Me</h1>
+        <p>Hello! I am currently pursuing my education at SNS College of Technology, where I have developed a strong foundation in <b>Software Engineering and Food Technology.</b></p>
+        <p>As an aspiring Software Engineer and Food Technologist, I am passionate about innovation and leveraging technology to drive impactful solutions.</p>
+        <p>Currently interning at <b>Wise Work</b>, I am honing my skills in <b>.NET, Blazor, C#, MudBlazor, Python, C</b>, while also expanding my expertise in <b>web development, Java, and data structures.</b></p>
+        <p>My goal is to merge my expertise in software development and food technology to create innovative solutions that enhance efficiency, quality, and sustainability.</p>
+    </div>
+</div>
+
+            <section id="skills" class="section">
+                <h1 class="fade-in">Skills</h1>
+                <div class="skills-container">
+                    <style>
+                        .skill-box h3 {
+                            color: rgb(240, 236, 236); /* Change skill headings to white */
+                        }
+                        .skill-box ul li {
+                            color: rgb(242, 232, 232); /* Change skill items to white */
+                        }
+                    </style>
+                    <div class="skill-box fade-in-skill animated-bg" data-skill-order="1">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li><i class="fab fa-github"></i> GitHub</li>
+                            <li><i class="fab fa-microsoft"></i> Azure DevOps</li>
+                            <li><i class="fab fa-git-alt"></i> Git</li>
+                            <li><i class="fas fa-code"></i> Visual Studio Code</li>
+                            <li><i class="fas fa-code-branch"></i> Visual Studio</li>
+                        </ul>
+                    </div>
+                    <div class="skill-box fade-in-skill" data-skill-order="2">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li><i class="fab fa-java"></i> Java</li>
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fas fa-code"></i> C#</li>
+                        </ul>
+                    </div>
+                    <div class="skill-box fade-in-skill" data-skill-order="3">
+                        <h3>Frontend & Backend</h3>
+                        <ul>
+                            <li><i class="fas fa-leaf"></i> MongoDB</li>
+                            <li><i class="fas fa-database"></i> SQL</li>
+                            <li><i class="fab fa-microsoft"></i> ASP.NET</li>
+                            <li><i class="fas fa-fire"></i> MudBlazor</li>
+                            <li><i class="fab fa-html5"></i> HTML</li>
+                            <li><i class="fab fa-css3-alt"></i> CSS</li>
+                            <li><i class="fab fa-js-square"></i> JavaScript</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </section>
+    
+            <section id="experience" class="section">
+                <h1 class="fade-in">Experience</h1>
+                <div class="experience-item stagger-item">
+                    <h3>Software Engineer Intern At Wise Work | 🎓Final Year </h3>
+                    <p><em>Oct 2024 - Present </em></p>
+
+                    <h3>Quality Assurance Intern At PepsiCo</h3>
+                    <p><em>jun 2024 - July 2024 </em></p>
+
+                    <h3>Quality Assurance Intern At Britannia</h3>
+                    <p><em>Dec 2023 - Jan 2024 </em></p>
+                  
+                </div>    
+            </section>
+    
+            <section id="projects" class="section">
+                <h1 class="fade-in">Projects</h1>
+                
+                <div class="project-buttons fade-in-stagger">
+                    <button class="project-button active" data-project="Skill Check">Skill Check</button>
+                    <button class="project-button active" data-project="weather">Weather Prediction</button>
+                    <button class="project-button" data-project="Smart Oats Pro">Smart Oats Pro</button>
+                    <button class="project-button" data-project="Pespico">Varun Beverages Limited – Pespico</button>
+                    <button class="project-button" data-project="Britannia">Britannia</button>
+                </div>
+            
+                <h4>Skill Check – Project Overview!!</h4>
+                <ul>
+                    <li>This update enhances the Skill Check platform with new features, bug fixes, and performance improvements.</li>
+                    <li>Secure Authentication: Implemented JWT-based authentication and role-based access control.</li>
+                    <li>Improved Test Experience: Enhanced session management, preventing cross-session contamination.</li>
+                    <li>Optimized Timer System: Fixed synchronization issues to ensure accurate tracking.</li>
+                    <li>Error Handling Fixes: Ensured error messages and warnings are user-specific.</li>
+                    <li>Database Structuring: Restructured login management for better efficiency.</li>
+                    <li>Frontend Enhancements: Improved UI/UX for a smoother test-taking experience.</li>
+                    <li>Security & Performance: Introduced API rate limiting and better state management.</li>
+                </ul>
+            
+                <!-- Weather Prediction Project
+                <div id="weatherProject" class="project-details active">
+                    <div class="project-content">
+                        <div class="project-image-container">
+                            <img src="image/istockphoto-1007768414-612x612.jpg" alt="Weather Prediction Project" class="project-image">
+                        </div>
+                        <div class="project-text">
+                            <h3>Weather Prediction</h3>
+                            <p><em>Oct 2024 - Nov 2024</em></p>
+                            <ul>
+                                <li>App-Controlled Convenience – Users can start, stop, and customize oats preparation remotely via a mobile app.</li>
+                                <li class="project-point">API Integration: Successfully integrated external weather APIs, achieving 98% accuracy in weather forecasts and reducing data retrieval time by 40%.</li>
+                                <li class="project-point">Interactive User Experience: Implemented interactive UI components with Blazor, resulting in a 50% increase in user engagement and time spent on the website.</li>
+                            </ul>
+                            <a href="https://github.com/sanashaikhh28/weatherAPP" target="_blank" class="github-button">View on GitHub</a>
+                        </div>
+                    </div> -->
+                <!-- Smart oats pro -->
+                <div id="WeatherProject" class="project-details active">
+                    <div class="project-content">
+                        <div class="project-image-container">
+                            <img src="image/istockphoto-1007768414-612x612.jpg" alt="Weather Prediction Project" class="project-image">
+                        </div>
+                        <div class="project-text">
+                            <h3>Weather Prediction</h3>
+                            <p><em>Oct 2024 - Nov 2024</em></p>
+                            <ul>
+                                <li>Real-Time Weather Data – Fetches live temperature, humidity, and wind speed using APIs.</li>
+                                <li>Forecast Predictions – Uses historical data and algorithms to predict future weather trends.</li>
+                                <li>API Integration – Connects with weather data providers for accurate and updated information.</li>
+                                <li>Smart Notifications – Receive real-time alerts on meal readiness and device status.</li>
+                            </ul>
+                            <a href="https://github.com/sanashaikhh28/weatherAPP"  target="_blank"  rel="noopener noreferrer" class="Git">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+               
+
+<!-- Smart oats pro -->
+<div id="Smart Oats Pro" class="project-details active">
+    <div class="project-content">
+        <div class="project-image-container">
+            <img src="image/Smart Oats Pro.webp" alt="Smart Oats Pro" class="project-image">
+        </div>
+        <div class="project-text">
+            <h3>Smart Oats Pro</h3>
+            <p><em>Nov 2024 - Feb 2025</em></p>
+            <ul>
+                <li>App-Controlled Convenience – Users can start, stop, and customize oats preparation remotely via a mobile app.</li>
+                <li>Automated & Customizable Cooking – Adjust water levels, temperature, and cooking time for a perfect meal.</li>
+                <li>Scheduled Cooking – Set timers to prepare oats automatically, ensuring a hassle-free experience.</li>
+                <li>Alerts & Notifications – Sends weather warnings and updates to users.</li>
+            </ul>
+            <a href="https://drive.google.com/file/d/1t5y2TlQG9cm-9ejhdfBkFLNJjpVXuvRU/view?usp=drivesdk"  target="_blank"  rel="noopener noreferrer" class="drive-button">View on Google Drive</a>
+        </div>
+    </div>
+</div>
+
+       <!-- PepsiCo Project -->
+       <div id="Pespico" class="project-details active">
+        <div class="project-content">
+            <div class="project-image-container">
+                <img src="image/bottles-of-global-soft-drink-brands-including-products-of-coca-cola-company-and-pepsico-WX0H5B.jpg" alt="Varun Beverages Limited" class="project-image">
+            </div>
+            <div class="project-text">
+                <h3>Pespico</h3>
+                <p><em>June 2024 - July 2024</em></p>
+                <ul>
+                    <li>Enhanced Production Efficiency: Analyzed and optimized bottling processes, contributing to faster and smoother operations.</li>
+                    <li>Quality Assurance Excellence: Ensured top-tier beverage quality by conducting rigorous safety and compliance checks.</li>
+                    <li>Smart Supply Chain Solutions: Assisted in streamlining logistics and inventory management for seamless distribution.</li>
+                    <li>Innovation in Automation: Explored cutting-edge bottling automation, identifying key improvements for process efficiency.</li>
+                </ul>
+                <a href="https://drive.google.com/file/d/1v6zjXKtxTc-tMAXLfRgUel722xXud2Cx/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="drive-button">View on Google Drive</a>
+            </div>
+        </div>
+    </div>
+   
+     <!-- Britannia Project -->
+
+     <div id="Britannia" class="project-details active">
+        <div class="project-content">
+            <div class="project-image-container">
+                <img src="image/britannia-.jpg" alt="Britannia Pvt Limited" class="project-image">
+            </div>
+            <div class="project-text">
+                <h3>Britannia</h3>
+                <p><em>Dec 2023 - Jan 2024</em></p>
+                <ul>
+                    <li>Optimized Snack Production: Worked on improving manufacturing processes for enhanced efficiency and consistency.</li>
+                    <li>Quality & Safety Compliance: Ensured adherence to FSSAI and industry standards through rigorous quality checks.</li>
+                    <li>Ensured Premium Quality: Conducted quality checks to maintain Good Day’s signature taste, texture, and compliance with industry standards.</li>
+                    <li>Supply Chain Efficiency: Contributed to inventory management and streamlined logistics for raw materials and finished goods.</li>
+                </ul>
+                <a href="https://drive.google.com/file/d/1vEDlbz7693CrwGe_VQvDB5Po9WAtpYN0/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="drive-button">View on Google Drive</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+            </section>
+    
+            <section id="contact" class="section">
+                <h1 class="fade-in">Contact Me</h1>
+                <div class="content-wrapper stagger-item">
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <div class="social-icons"
+                                style="color: #12e1e5; text-decoration: none;">
+                                <a href="mailto:sanashaikhh2827@gmail.com" class="icon-button" data-tooltip="sanashaikhh2827@gmail.com">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/shaikh-sanaaa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="icon-button"  data-tooltip="Sana Shaikh">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/sanashaikhh28" target="_blank" class="icon-button" data-tooltip="sanashaikhh28">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <form id="contactForm" class="contact-form">
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                            <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+
+        </main>
+    </main>
+    <footer>
+        <p>&copy; 2023 Sana Shaikh. All rights reserved.</p>
+    </footer>
+    <script src="particles.js"></script>
+    <script src="scroll-animation.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+   
+    
+</body>
+</html>
